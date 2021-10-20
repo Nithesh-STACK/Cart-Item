@@ -1,0 +1,86 @@
+﻿@model BookAPI.Models.PaymentDetail
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<style>
+    .containers {
+        align-content: center;
+        display: flex;
+        justify-content: center;
+        width: 750px;
+        height: 500px;
+        border: 1px solid;
+        background-color: ghostwhite;
+    }
+
+    .card-columns img {
+        width: 50px;
+    }
+
+    .crd {
+        background-size: auto;
+        background-repeat: no-repeat;
+        min-width: 100%;
+        margin-top: -40px;
+        position: absolute;
+        left: -100%;
+        right: -100%;
+        margin: auto;
+        top: 8%;
+    }
+
+    .container {
+        background-color: paleturquoise;
+    }
+
+    body {
+        background-color: paleturquoise;
+    }
+</style>
+<h1>Online Payment Gateway</h1>
+
+<hr />
+<div class="container">
+    <div class="containers">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="CardPay">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CardHolderName" class="control-label"></label>
+                        <input asp-for="CardHolderName" />
+                        <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DebitCardNumber" class="control-label"></label>
+                        <input asp-for="DebitCardNumber" />
+                        <span asp-validation-for="DebitCardNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ExpiryDate" class="control-label"></label>
+                        <input asp-for="ExpiryDate" />
+                        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CvvPin" class="control-label"></label>
+                        <input asp-for="CvvPin" type="password" />
+                        <span asp-validation-for="CvvPin" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </form>
+                <div class="card-columns">
+                    <img src="~/images/master.png" />                <img src="~/images/visa.png" />  <img src="~/images/rupay.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

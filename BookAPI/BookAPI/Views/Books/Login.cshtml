@@ -1,0 +1,79 @@
+﻿@model BookAPI.Models.MemberLogin
+
+@{ ViewData["Title"] = "Login"; }
+<style>
+    h1 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+
+    h4 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+
+    form {
+        display: block;
+        margin-left: 400px;
+        margin-right: 400px;
+        width: 300px;
+    }
+    .log {
+        background-size: auto;
+        background-repeat: no-repeat;
+        min-width: 100%;
+        margin-top: -40px;
+        position: absolute;
+        left: -100%;
+        right: -100%;
+        margin: auto;
+        top: 10%;
+    }
+  
+    .font{
+        position:absolute;
+        text-align:center;
+        left:10%;
+        color:black;
+        top:-29%;
+
+    }
+</style>
+
+<hr />
+
+<div style="color:white;">
+<h4 style="text-align:center"> Login </h4>
+<hr />
+
+<div class="container">
+    <img class="log" src="~/images/shop bag.jpg" />
+
+    <div class="row">
+        <div class="col-md-4">
+            <h1 class="font">Login to Continue Shopping</h1>
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">UserName: </label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter the Username " />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label">Password: </label>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Enter the Password " />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert alert-info">@ViewBag.Message</div>
+                }
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                    <a input type="submit" asp-action="RegisterUsers" class="btn btn-primary" />Register</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    </div>

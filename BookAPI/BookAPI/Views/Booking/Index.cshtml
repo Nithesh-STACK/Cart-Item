@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BookingClient.Models.APIClients>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+</h1><p style="color:white">Movie Category  </p></h1>
+<style>
+    .table {
+        background-color: blanchedalmond;
+    }
+
+    body {
+        background-color: #696969;
+    }
+
+    .container {
+        background-color: #696969;
+    }
+</style>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MoviePoster)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieDescription)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.MoviePoster)*@
+                    <img src="@Url.Content(item.MoviePoster)" height="200" width="200" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieDescription)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

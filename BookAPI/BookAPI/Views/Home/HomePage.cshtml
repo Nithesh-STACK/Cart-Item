@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "HomePage";
+}
+
+<style>
+    html, body {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .bg {
+        background-image: url('~/wwwroot/images');
+        background-size: auto;
+        background-repeat: no-repeat;
+        min-width: 100%;
+        margin-top: -40px;
+        position: absolute;
+        left: -100%;
+        right: -100%;
+        margin: auto;
+        top: 10%;
+    }
+
+    .display-1 {
+        position: absolute;
+        top: 15%;
+        color: white;
+        left: 60%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .display-2 {
+        position: absolute;
+        top: 35%;
+        color: white;
+        left: 70%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .display-3 {
+        position: absolute;
+        top: 55%;
+        color: white;
+        left: 51%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .btn-outline-light {
+        position: absolute;
+        top: 70%;
+        left: 51%;
+        font-size: 20px;
+    }
+
+    #logi {
+        position: absolute;
+        top: 70%;
+        font-size: 60px;
+        left: 67%;
+    }
+
+    #register {
+        position: absolute;
+        top: 70%;
+        font-size: 60px;
+        left: 75%;
+    }
+</style>
+
+<div class="container">
+    <img class="bg" src="/images/pgs.jpg" />
+    <div class="text-center">
+        <h1 class="display-1">Welcome</h1>
+        <h1 class="display-2">To</h1>
+        <h1 class="display-3">Online Mega Mall</h1>
+        <a id="logi" asp-controller="Books" asp-action="Login"><button class="btn-outline-light btn-dark ">Login</button></a>
+        <a id="register" asp-controller="Books" asp-action="RegisterUsers"><button class="btn-outline-light btn-dark ">Register</button></a>
+
+
+
+
+    </div>
+
+</div>
+
+
